@@ -118,10 +118,6 @@ class Provider(Connection):
 
 
 creds = {
-    "tenantId": "fc056b93-a329-4fac-be7b-b1e80f73dd46",
-    "clientId": "f2fc578b-620e-40c2-933c-d4b192d72eb9",
-    "clientSecret": "AeH8Q~Ixo2RwelBUzyCMaWdkH-zkiv.bXP_S4aNE",
-    "subscription_id": "caefd61d-5564-42f9-aa8d-c5369d9db0f8"
 }
 provider = Provider(credentials=creds, resource_type="key_vault")
 assets = provider.get_assets()
