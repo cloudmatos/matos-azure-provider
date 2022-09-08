@@ -102,7 +102,7 @@ setup(
     # Note that this is a list of additional keywords, separated
     # by commas, to be used to assist searching for the distribution in a
     # larger catalog.
-    keywords="azure, cloudsecurity, matos, cloudmatos", # Optional
+    keywords="azure, cloudsecurity, matos, cloudmatos",  # Optional
     # When your source code is in a subdirectory under the project root, e.g.
     # `src/`, it is necessary to specify the `package_dir` argument.
     package_dir={"": "src"},  # Optional
@@ -133,7 +133,7 @@ setup(
                       "azure-mgmt-containerservice>=14.0.0b1", "azure-mgmt-sql>=1.0.0b1",
                       "azure-mgmt-keyvault>=10.0.0", "azure-mgmt-monitor>=3.1.0",
                       "azure-mgmt-rdbms>=10.1.0",
-                     "pyyaml", "ruamel.yaml", "kubernetes==21.7.0"],  # Optional
+                      "pyyaml", "ruamel.yaml", "kubernetes==21.7.0", "azure-keyvault-certificates"],  # Optional
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
     # syntax, for example:

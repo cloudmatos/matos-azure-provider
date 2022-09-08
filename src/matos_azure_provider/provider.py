@@ -117,11 +117,3 @@ class Provider(Connection):
         return resource
 
 
-creds = {
-
-}
-
-provider = Provider(credentials=creds, resource_type="key_vault")
-assets = provider.get_assets()
-resources = provider.get_resource_inventories(assets)
-print(resources)

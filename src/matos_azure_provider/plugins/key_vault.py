@@ -45,7 +45,19 @@ class AzureKeyVault(BaseProvider):
                 cert_data = []
                 for i in cert.list_properties_of_certificates():
                     var = cert.get_certificate(i.name)
-                    cert_data.append(dict(var.policy.__dict__))
+                    key_size = var.policy.key_size
+                    key_type = var.policy.key_type
+                    action = var.policy.lifetime_actions[0]
+                    trasperacy = var.policy.certificate_transparency
+                    var1 = {
+                        "key_size": key_size,
+                        "key_type": key_type.__dict__["_value_"],
+                        "action": action.action.__dict__["_value_"],
+                        "days_before_expiry": action.days_before_expiry,
+                        "lifetime_percentage": action.lifetime_percentage,
+                        "transperacy": trasperacy
+                    }
+                    cert_data.append(var1)
                 obj_item['certificates'] = cert_data
                 resource = obj_item
 
@@ -59,3 +71,4 @@ def register() -> Any:
         Any: Nonce
     """
     factory.register("key_vault", AzureKeyVault)
+
