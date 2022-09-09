@@ -50,6 +50,7 @@ class AzureKeyVault(BaseProvider):
                     action = var.policy.lifetime_actions[0]
                     trasperacy = var.policy.certificate_transparency
                     var1 = {
+                        "name": i.name,
                         "key_size": key_size,
                         "key_type": key_type.__dict__["_value_"],
                         "action": action.action.__dict__["_value_"],
