@@ -17,7 +17,7 @@ class Provider(Connection):
         Connection (Class): base connection object
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
         self.credentials = kwargs.get("credentials", None)
         self.application_id = kwargs.get("application_id", None)
