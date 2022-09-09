@@ -3,13 +3,15 @@ from azure.mgmt.containerservice import ContainerServiceClient
 from azure.mgmt.storage import StorageManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.sql import SqlManagementClient
+from azure.mgmt.keyvault import KeyVaultManagementClient
 
 AZURE_CLIENT_MANAGER = {
     "cluster": ContainerServiceClient,
     "instance": ComputeManagementClient,
     "network": NetworkManagementClient,
     "storage": StorageManagementClient,
-    "sql": SqlManagementClient
+    "sql": SqlManagementClient,
+    "key_vault": KeyVaultManagementClient
 }
 
 AZURE_GROUPED_RESOURCE = {
