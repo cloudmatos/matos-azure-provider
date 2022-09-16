@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Any, Dict
+from azure.mgmt.resource import ResourceManagementClient
 from matos_azure_provider.lib import factory
 from matos_azure_provider.lib.base_provider import BaseProvider
-from azure.mgmt.resource import ResourceManagementClient
 
 class AzureMonitor(BaseProvider):
 
