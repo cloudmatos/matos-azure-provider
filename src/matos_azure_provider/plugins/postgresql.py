@@ -42,7 +42,7 @@ class AzurePostgreSQL(BaseProvider):
                                                                 ).as_dict()
                 admin_users.append(server_admin)
             except:
-                admin_users = []
+                pass
 
             logs = [i.as_dict() for i in self.conn.configurations.list_by_server(
                 i['rg_name'], i['name'])]
