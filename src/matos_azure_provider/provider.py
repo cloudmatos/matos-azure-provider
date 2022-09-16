@@ -30,7 +30,7 @@ class Provider(Connection):
         Discover aws resources
         """
         threads = []
-        resources = [{"type": "iam"}]
+        resources = [{"type": "postgresql"}]
         lock = threading.Lock()
 
         def fetch_discovery_details(rsc_type):
@@ -50,6 +50,7 @@ class Provider(Connection):
                     resources.append(result)
 
         service_map = self.service_factory.fetch_plugins()
+        print(service_map)
         for rsc_type, _ in service_map.items():
             if self.resource_type and self.resource_type != rsc_type:
                 continue
@@ -114,3 +115,5 @@ class Provider(Connection):
         resource.pop("credentials")
         resource.pop("application_id")
         return resource
+
+
