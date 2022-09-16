@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from typing import Any, Dict
+from azure.keyvault.certificates import CertificateClient
 from matos_azure_provider.lib import factory
 from matos_azure_provider.lib.base_provider import BaseProvider
-from azure.keyvault.certificates import CertificateClient
-
 
 class AzureKeyVault(BaseProvider):
 
