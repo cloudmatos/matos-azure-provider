@@ -22,7 +22,7 @@ class AzureKeyVault(BaseProvider):
         resources = [{"type": 'key_vault', 'name': resource['name']} for resource in resources]
         return resources
 
-    def get_resources(self) -> Any:
+    def get_resources(self) -> Any: # pylint: disable=R0914
         """
         Fetches instance details.
 

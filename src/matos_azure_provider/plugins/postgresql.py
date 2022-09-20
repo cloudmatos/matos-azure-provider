@@ -41,7 +41,7 @@ class AzurePostgreSQL(BaseProvider):
                 server_admin = self.conn.server_administrators.get(i['rg_name'], i['name']
                                                                 ).as_dict()
                 admin_users.append(server_admin)
-            except:
+            except: # pylint: disable=W0702
                 pass
 
             logs = [i.as_dict() for i in self.conn.configurations.list_by_server(
