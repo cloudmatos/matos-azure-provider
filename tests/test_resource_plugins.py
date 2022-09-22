@@ -11,9 +11,10 @@ from matos_azure_provider.plugins.instance import AzureInstance
 from matos_azure_provider.plugins.storage import AzureStorage
 from matos_azure_provider.plugins.network import AzureNetwork
 from matos_azure_provider.plugins.sql import AzureSql
-from matos_azure_provider.provider import Provider
 from matos_azure_provider.plugins.key_vault import AzureKeyVault
-
+from matos_azure_provider.plugins.monitor import AzureMonitor
+from matos_azure_provider.plugins.postgresql import AzurePostgreSQL
+from matos_azure_provider.provider import Provider
 DUMMY_CREDENTIALS = {
     "tenantId": "",
     "clientId": "",
@@ -32,7 +33,9 @@ class TestResourcePlugin(unittest.TestCase):
             "storage": AzureStorage,
             "network": AzureNetwork,
             "sql": AzureSql,
-            "key_vault":AzureKeyVault
+            "key_vault": AzureKeyVault,
+            "monitor": AzureMonitor,
+            "postgresql":AzurePostgreSQL
         }
 
     def test_get_plugins_pass(self):

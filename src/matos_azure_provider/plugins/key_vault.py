@@ -4,7 +4,6 @@ from azure.keyvault.certificates import CertificateClient
 from matos_azure_provider.lib import factory
 from matos_azure_provider.lib.base_provider import BaseProvider
 
-
 class AzureKeyVault(BaseProvider):
 
     def __init__(self, resource: Dict, **kwargs) -> None:
@@ -23,7 +22,7 @@ class AzureKeyVault(BaseProvider):
         resources = [{"type": 'key_vault', 'name': resource['name']} for resource in resources]
         return resources
 
-    def get_resources(self) -> Any:
+    def get_resources(self) -> Any: # pylint: disable=R0914
         """
         Fetches instance details.
 
@@ -41,7 +40,9 @@ class AzureKeyVault(BaseProvider):
                                              self.conn.keys.list(obj_rg_name, obj_name)]
                 obj_item['secret_key'] = [self.scrub(fwitem) for fwitem in
                                           self.conn.secrets.list(obj_rg_name, obj_name)]
-                cert = CertificateClient(item.properties.vault_uri, self.credential)
+                uri_name = obj_item['name']
+                uri = f"https://{uri_name}.vault.azure.net/"
+                cert = CertificateClient(uri, self.credential)
                 cert_data = []
                 for i in cert.list_properties_of_certificates():
                     var = cert.get_certificate(i.name)
@@ -50,7 +51,6 @@ class AzureKeyVault(BaseProvider):
                     action = var.policy.lifetime_actions[0]
                     trasperacy = var.policy.certificate_transparency
                     var1 = {
-                        "name": i.name,
                         "key_size": key_size,
                         "key_type": key_type.__dict__["_value_"],
                         "action": action.action.__dict__["_value_"],

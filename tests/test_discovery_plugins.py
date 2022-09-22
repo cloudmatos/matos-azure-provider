@@ -21,7 +21,9 @@ class TestDiscoveryPlugin(unittest.TestCase):
             "instance": "instance",
             "network": "network",
             "sql": "sql",
-            "key_vault":"key_vault"
+            "key_vault":"key_vault",
+            "monitor":"monitor",
+            "postgresql":"postgresql"
         }
 
     def test_check_plugins_type_pass(self):
