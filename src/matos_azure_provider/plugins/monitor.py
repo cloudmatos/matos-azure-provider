@@ -12,7 +12,7 @@ class AzureMonitor(BaseProvider):
         """
 
         self.resource = resource
-        super().__init__(**kwargs, client_type="monitor")
+        super().__init__(**kwargs, client_type="log_monitor")
 
     def get_inventory(self) -> Any:
         """
@@ -47,4 +47,4 @@ def register() -> Any:
     Returns:
         Any: Nonce
     """
-    factory.register("monitor", AzureMonitor)
+    factory.register("log_monitor", AzureMonitor)
