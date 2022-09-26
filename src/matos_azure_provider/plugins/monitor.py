@@ -20,7 +20,7 @@ class AzureMonitor(BaseProvider):
         """
         client = ResourceManagementClient(self.credential,self.subscription_id)
         resources = [item.as_dict() for item in client.resource_groups.list()]
-        resources = [{"type": 'monitor', 'name': resource['name']} for resource in resources]
+        resources = [{"type": 'log_monitor', 'name': resource['name']} for resource in resources]
         return resources
 
     def get_resources(self) -> Any:
