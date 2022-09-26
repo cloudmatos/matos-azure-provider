@@ -3,13 +3,18 @@ from azure.mgmt.containerservice import ContainerServiceClient
 from azure.mgmt.storage import StorageManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.sql import SqlManagementClient
-
+from azure.mgmt.keyvault import KeyVaultManagementClient
+from azure.mgmt.monitor import MonitorManagementClient
+from azure.mgmt.rdbms.postgresql import PostgreSQLManagementClient
 AZURE_CLIENT_MANAGER = {
     "cluster": ContainerServiceClient,
     "instance": ComputeManagementClient,
     "network": NetworkManagementClient,
     "storage": StorageManagementClient,
-    "sql": SqlManagementClient
+    "sql": SqlManagementClient,
+    "key_vault": KeyVaultManagementClient,
+    "monitor": MonitorManagementClient,
+    "postgresql": PostgreSQLManagementClient
 }
 
 AZURE_GROUPED_RESOURCE = {
@@ -19,5 +24,5 @@ AZURE_GROUPED_RESOURCE = {
     "Storage": ['storage'],
     "Database": ['sql', 'postgresql'],
     "Monitor": ['monitor'],
-    "KeyVault": ['key_vault']
+    "KeyVault": ['key_vault'],
 }
