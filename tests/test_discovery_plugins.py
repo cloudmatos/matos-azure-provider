@@ -22,7 +22,7 @@ class TestDiscoveryPlugin(unittest.TestCase):
             "network": "network",
             "sql": "sql",
             "key_vault":"key_vault",
-            "monitor":"monitor",
+            "log_monitor":"log_monitor",
             "postgresql":"postgresql"
         }
 

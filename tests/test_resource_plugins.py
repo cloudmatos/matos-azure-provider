@@ -34,7 +34,7 @@ class TestResourcePlugin(unittest.TestCase):
             "network": AzureNetwork,
             "sql": AzureSql,
             "key_vault": AzureKeyVault,
-            "monitor": AzureMonitor,
+            "log_monitor": AzureMonitor,
             "postgresql":AzurePostgreSQL
         }
 

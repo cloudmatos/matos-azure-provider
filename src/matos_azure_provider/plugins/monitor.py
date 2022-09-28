@@ -12,7 +12,7 @@ class AzureMonitor(BaseProvider):
         """
 
         self.resource = resource
-        super().__init__(**kwargs, client_type="monitor")
+        super().__init__(**kwargs, client_type="log_monitor")
 
     def get_inventory(self) -> Any:
         """
@@ -20,7 +20,7 @@ class AzureMonitor(BaseProvider):
         """
         client = ResourceManagementClient(self.credential,self.subscription_id)
         resources = [item.as_dict() for item in client.resource_groups.list()]
-        resources = [{"type": 'monitor', 'name': resource['name']} for resource in resources]
+        resources = [{"type": 'log_monitor', 'name': resource['name']} for resource in resources]
         return resources
 
     def get_resources(self) -> Any:
@@ -47,4 +47,4 @@ def register() -> Any:
     Returns:
         Any: Nonce
     """
-    factory.register("monitor", AzureMonitor)
+    factory.register("log_monitor", AzureMonitor)

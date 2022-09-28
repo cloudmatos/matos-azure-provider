@@ -13,7 +13,7 @@ AZURE_CLIENT_MANAGER = {
     "storage": StorageManagementClient,
     "sql": SqlManagementClient,
     "key_vault": KeyVaultManagementClient,
-    "monitor": MonitorManagementClient,
+    "log_monitor": MonitorManagementClient,
     "postgresql": PostgreSQLManagementClient
 }
 
@@ -23,6 +23,6 @@ AZURE_GROUPED_RESOURCE = {
     "Network": ['network'],
     "Storage": ['storage'],
     "Database": ['sql', 'postgresql'],
-    "Monitor": ['monitor'],
+    "Log_Monitor": ['log_monitor'],
     "KeyVault": ['key_vault'],
 }
