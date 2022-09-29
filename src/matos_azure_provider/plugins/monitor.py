@@ -35,7 +35,6 @@ class AzureMonitor(BaseProvider):
         client = ResourceManagementClient(self.credential,self.subscription_id)
         resources = [{"type": 'log_monitor', 'name': item.name,'location': item.location}
                      for item in client.resource_groups.list()]
-        # resource_ = []
         for i in resources:
             data = {}
             resource = [item.as_dict() for item in self.conn.activity_log_alerts.list_by_resource_group(
