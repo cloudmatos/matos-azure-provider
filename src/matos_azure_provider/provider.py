@@ -30,7 +30,7 @@ class Provider(Connection):
         Discover aws resources
         """
         threads = []
-        resources = [{"type": ""}]
+        resources = [{"type": "key_vault"}]
         lock = threading.Lock()
 
         def fetch_discovery_details(rsc_type):

@@ -34,8 +34,10 @@ class AzureKeyVault(BaseProvider):
         for item in self.conn.vaults.list():
             obj_item = self.scrub(item)
             if obj_item.get('name', '') == self.resource.get('name'):
+
                 obj_rg_name = obj_item['id'].split('/')[-5]
                 obj_name = obj_item['name']
+                obj_item['vault'] = self.conn.vaults.get(obj_rg_name,obj_name).as_dict()
                 obj_item['encrypted_key'] = [self.scrub(fwitem) for fwitem in
                                              self.conn.keys.list(obj_rg_name, obj_name)]
                 obj_item['secret_key'] = [self.scrub(fwitem) for fwitem in
