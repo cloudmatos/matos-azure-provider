@@ -31,14 +31,19 @@ class AzureMonitor(BaseProvider):
         None
         return: dictionary object.
         """
-        resource = None
+        resource_ = None
         client = ResourceManagementClient(self.credential,self.subscription_id)
-        resources = [item.as_dict() for item in client.resource_groups.list()]
+        resources = [{"type": 'log_monitor', 'name': item.name,'location': item.location}
+                     for item in client.resource_groups.list()]
         for i in resources:
+            data = {}
             resource = [item.as_dict() for item in self.conn.activity_log_alerts.list_by_resource_group(
             i['name'])]
-
-        return resource if resource else self.resource
+            data['name'] = i['name']
+            data['location'] = i['location']
+            data['alerts'] = resource
+            resource_ = data
+        return resource_ if resource_ else self.resource
 
 
 def register() -> Any:
