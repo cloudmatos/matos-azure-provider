@@ -30,7 +30,7 @@ class Provider(Connection):
         Discover aws resources
         """
         threads = []
-        resources = [{"type": "postgresql"}]
+        resources = [{"type": "key_vault"}]
         lock = threading.Lock()
 
         def fetch_discovery_details(rsc_type):
@@ -115,4 +115,3 @@ class Provider(Connection):
         resource.pop("credentials")
         resource.pop("application_id")
         return resource
-        
